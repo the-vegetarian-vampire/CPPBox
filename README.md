@@ -1,8 +1,8 @@
 # CPPBox
 
-C++ box.
-
 Playing with C++
+
+[multi-threading course](https://github.com/JamesRaynard/Multithreading-Cpp-Course)   
 
 to compile:
 
