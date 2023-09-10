@@ -47,7 +47,8 @@ Definitions
 
 `mutex` - (mutual exclusion) a synchronization primitive that enforces limits on access to a shared resource within multiple threads of execution.
  - crucial for ensuring the correctness and efficiency of multithreaded applications
- - usleep (common in POSIX systems) pauses thread: std::this_thread::sleep_for   
+ - usleep (common in POSIX systems) pauses thread: std::this_thread::sleep_for
+ - https://github.com/portfoliocourses/c-example-code/tree/main/mutex   
 
 `new` - allocate memory dynamically on the heap during runtime:
 
