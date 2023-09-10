@@ -17,8 +17,8 @@ or
 g++ file.cpp -o file
 ```
 
-`-g` - option tells compiler to include debugging information in the generated executable.  
-`-o` - option specifies the name of the output file. In this case, the output (the compiled executable) will be named my_program. If you don't provide the -o option, g++ will, by default, produce an output file named a.out on Unix-like systems or a.exe on Windows.
+`-g` - tells compiler to include debugging information in generated executable.  
+`-o` - specifies name of the output file. In this case, the output (the compiled executable) will be named my_program. If you don't provide the -o option, g++ will, by default, produce an output file named a.out on Unix-like systems or a.exe on Windows.
 
 ---
 
@@ -26,14 +26,28 @@ g++ file.cpp -o file
 to run: ./filename
 ```
 
-`cout` - console output  
-`cin` - console input
+---
+
+Definitions
+
+`cout` - console output -- insertion operator <<   
+`cin` - console input -- extraction operator >>   
+
+`#` - is a preprocessor directive
 
 `g++` - gnu compiler  
 `-o` - the output file
 
 `float` - 4 bytes // 7 decimal digits precision // less memory cost  
 `double` - 8 bytes // 15 decimal digits precision //
+
+`list initialization syntax` - int age {21};   
+`sizeof (int)` - #include <climits>  // #inlcude <cfloat>   
+`sizeof (double)` returns byte size   
+
+`mutex` - (mutual exclusion) a synchronization primitive that enforces limits on access to a shared resource within multiple threads of execution.
+ - crucial for ensuring the correctness and efficiency of multithreaded applications
+ - usleep (common in POSIX systems) pauses thread: std::this_thread::sleep_for   
 
 `new` - allocate memory dynamically on the heap during runtime:
 
