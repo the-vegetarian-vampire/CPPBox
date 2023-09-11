@@ -5,6 +5,15 @@ Playing with C++
 [multi-threading course](https://github.com/JamesRaynard/Multithreading-Cpp-Course)   
 [keywords](https://en.cppreference.com/w/cpp/keyword)   
 
+
+VSCode Setup:
+1. Command palate: C++ then compiler path to g++ and C++ standard C++17   
+2. terminal: configure default build task C++ g++ active build   
+3. Add to tasks.json
+ - "-Wall" and "-std=C++17"   
+
+----
+  
 to compile:
 
 ```
@@ -16,6 +25,8 @@ or
 ```
 g++ file.cpp -o file
 ```
+
+----
 
 `-g` - tells compiler to include debugging information in generated executable.  
 `-o` - specifies name of the output file. In this case, the output (the compiled executable) will be named my_program. If you don't provide the -o option, g++ will, by default, produce an output file named a.out on Unix-like systems or a.exe on Windows.
