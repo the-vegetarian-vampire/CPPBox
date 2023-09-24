@@ -4,6 +4,7 @@ Playing with C++
 
 [multi-threading course](https://github.com/JamesRaynard/Multithreading-Cpp-Course)   
 [keywords](https://en.cppreference.com/w/cpp/keyword)   
+[CPP reference](https://en.cppreference.com/w/)   
 
 
 VSCode Setup:
@@ -65,3 +66,20 @@ Definitions
 
 - `int *ptr = new int;` - variable - `delete ptr;`
 - `int *arr = new int[10];` - array - `delete[] arr;`
+
+-----
+
+static_cast<type>()
+`boolalpha` - boolean 0 = false   
+Short-circuit evaluation    
+sequence selection iteration   
+Function overloading    
+Polymorphism    
+Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;   
+size_t   
+Static local variable values retain value between calls   
+Formal parameters   
+Volatile   
+Actual parameters: pass by value: default manner in which passing parameters to functions   
+Function templates   
+Stack fram/activation record   
