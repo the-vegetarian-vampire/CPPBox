@@ -98,3 +98,33 @@ shallow copy -  and invalid data
 deep copy - copy data to pointer (incurs overhead)    
 move constructor (move semantics) C++ 11 (L value and R value) - && more efficient than copying (steals or pilfers the data)   
 return value optimization   
+
+---
+
+* Avoiding Heap Allocations: Use stack memory or pre-allocated memory pools to avoid dynamic memory allocations during critical paths.
+* Inlining: Understand compiler optimizations like inlining and when it's beneficial.
+* Cache Optimization: Familiarize yourself with cache hierarchies and how to write cache-friendly code.
+
+valgrind
+
+Copy Constructor: A copy constructor initializes an object using another object of the same type. It's particularly useful when you need a deep copy or want to control how objects of a class are copied.
+
+The stack is for automatic storage duration, typically for local variables. It has a LIFO (last in, first out) nature, is of limited size, and has automatic memory management. The heap is for dynamic storage duration, managed using new and delete (or malloc and free in C). It's larger but requires manual memory management.
+
+RAII: Stands for "Resource Acquisition Is Initialization". It's a principle in C++ where you tie resource management (like memory or file handles) to object lifetime.
+
+std::move vs std::copy: std::move is used for moving resources (like from one object to another), while std::copy is for copying contents between two places.
+
+Sockets:
+* Sockets provide an interface for programming networks at the transport layer of the internet protocol suite. They can be created using a combination of an IP address and a port number. Programming with sockets involves understanding various socket APIs for creating, binding, listening, sending, and receiving data.
+
+TCP/UDP:
+    * These are transport layer protocols in the internet protocol suite.
+    * TCP (Transmission Control Protocol): It is a connection-oriented protocol, ensuring that data sent from one end reaches the other end in the correct order and without errors. It's reliable but might have overhead due to its error-checking mechanisms.
+    * UDP (User Datagram Protocol): It is a simpler, connectionless protocol. Messages (datagrams) are sent without establishing a connection and without error-checking, making it faster but less reliable than TCP.
+
+RDMA (Remote Direct Memory Access):
+* RDMA allows direct memory access from the memory of one computer to that of another without involving either one's operating system. This is beneficial for HFT as it reduces latency in network communications.
+* It's a technology that permits high-throughput, low-latency networking, which is used in supercomputing and financial applications.
+
+Operator overloading 
