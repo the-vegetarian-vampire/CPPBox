@@ -11,6 +11,8 @@ Playing with C++
 3. Leetcode
 4. Projects
 
+-----
+
 VSCode Setup:
 
 1. Command palate: C++ then compiler path to g++ and C++ standard C++17
@@ -18,8 +20,6 @@ VSCode Setup:
 3. Add to tasks.json
 
 - "-Wall" and "-std=C++17"
-
----
 
 to compile:
 
@@ -43,10 +43,34 @@ g++ file.cpp -o file
 ```
 to run: ./filename
 ```
-
+---
+# Statements and Operators
+---
+# Program Flow
+---
+# OOP
+---
+# Operator Overloading
+---
+# Inheritance
+---
+# Polymorphism
+---
+# Smart Pointers
+---
+# exception Handling
+---
+# IO Streams
+---
+# STL
+---
+# Lambda expressions
+---
+# Multithreading and Concurrency
 ---
 
-Definitions
+
+# Definitions
 
 `cout` - console output -- insertion operator <<  
 `cin` - console input -- extraction operator >>
@@ -128,3 +152,6 @@ RDMA (Remote Direct Memory Access):
 * It's a technology that permits high-throughput, low-latency networking, which is used in supercomputing and financial applications.
 
 Operator overloading 
+
+enum without initialization implicit initialization // enum `is/a` type // switch statements   
+`enum enum-name : enumerator type {};`     
