@@ -155,3 +155,5 @@ Operator overloading
 
 enum without initialization implicit initialization // enum `is/a` type // switch statements   
 `enum enum-name : enumerator type {};`     
+
+`uint_fast32` - defined in the <cstdint> - the fastest unsigned integer type with a width of at least 32 bits.
