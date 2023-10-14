@@ -44,10 +44,30 @@ g++ file.cpp -o file
 to run: ./filename
 ```
 ---
+- clang
+- VC++
+- gcc
+
+
 # Statements and Operators
+Universal initiliazation   
+- `int x{7};`
+- `int x{7.7} - is ok` narrowing conversion
+
+
+preprocessor directives
+
 ---
 # Program Flow
 ---
+# Pointers and References
+
+
+- nullptr C++11  
+
+
+---
+
 # OOP
 ---
 # Operator Overloading
@@ -102,14 +122,96 @@ Dynamic Polymorphism - Run-Time Polymorphism
 
 ---
 # Exception Handling
+schools of thought: 
+  1. only used for exceptional situations where prevents program from continuing
+  2. never be used   
+
+- throw
+- try { code that may throw an exception }
+- catch (exception ex) { code to handle } // catch(...) - catch all
+  -  best practice to throw by value and catch by reference
+  -  don't throw exceptions from destructor
+
+`exception` - object or primitive type    
+`cerr` - standard error stream   
+`clog` - log stream for logging   
+`stack unwinding` - an exception is thrown, and control is transferred from the point of the throw statement to the handler; 
+
+`fail soft` - system is designed to continue operating even in the event of a failure or error, albeit in a potentially degraded state; useful in systems where total failure would have significant negative impacts, and some level of functionality is preferable to none
+
+STL C++17 heirarchy
+- `std::exception`
+- `noexcept` keyword
+- `what()` - virtual function
+
+
 ---
 # IO Streams
+streams - an abstract interface to input and output operations; represent data as a sequence of bytes and allow you to perform operations like reading and writing without needing to know the details of the underlying device or medium
+- iostream - input/output 
+- fstream - formatted input/output for file streams
+- iomanip - for manipulators
+
+
+### Manipulators - overloading insertion operator
+    - Boolean: boolalpha, noboolalpha
+    - Integer: dec, hex, oct, showbase
+    - Floating point: fixed, scientific
+    - endl, flush, skipws (ws = whitespace), noskipws, setfill
+    - showpos
+    - setf (is a method call)
+
+`cout` - console output -- insertion operator <<     
+`cin` - console input -- extraction operator >>   
+
+```
+int num {255}
+
+// std::cout << std::showbase;// and << std::uppercase
+std::cout << std::dec << num << stdLL << std::endl;
+std::cout << std::hex << num << stdLL << std::endl;
+std::cout << std::oct << num << stdLL << std::endl;
+
+255
+ff // or 0xff
+377 // or 3077
+```
+
+flush the stream - 
+redirecting i/o - 
+
+### Precision
+- std::setprecision(*n*)
+if not within precision range will display sci-notation
+
 ---
 # STL
+- has ~60 algorithms 
+
+
 ---
 # Lambda expressions
+- "Closures" or anonymous functions
+- defined inline
+- `[] (int arg){ return 2 * arg};`
+- can "capture" a local variable
+
+different in C++11/14/17
+
+
+
 ---
 # Multithreading and Concurrency
+- two activities at the same time
+- hardware concurrency // CPU chips "cores" // hardware threads
+- simultaneous users // separation of concerns
+- processor bigger and clock frequency but electrons can move through silicon so fast 
+- multithread: server throughput child and server in same process // access to each others data
+- adds complexity - bug likeliness - and may not result in faster programs
+
+
+- `process` an independent program in execution, with its own memory space, while a thread is the smallest executable unit of a process, sharing the process's memory space. Multithreading allows concurrent execution of two or more threads, which can be achieved through time slicing (sharing the CPU time between all running threads) or true parallel execution (in multi-core processors).
+- 
 ---
 # Notes
 
@@ -118,15 +220,32 @@ Dynamic Polymorphism - Run-Time Polymorphism
 - `context switching` - process where the state of a process is saved and the state of another process is loaded. It allows a single CPU to be shared by multiple processes by saving and loading their respective states so that execution can be resumed from where it was halted.
 - TTT - Time To Trade
 - ACID
+- nan = not a number
+- Std::move casts the argument to an r value 
 
+- std::chrono // namespace sc = std::chrono
+  - sc::seconds
+  - sc::miliseconds
+  - microseconds
 
+----------
+
+- C++14 // using namespace std::literals;
+  - 2s
+  - 20ms
+  - 50us
+
+`auto` - gives underlying type // compiler deduces // typical in `range for loop`
+
+C++11   
+- best random generator - std::19937
+- should be declared static 
+- 
 ---
 
 
 # Definitions
 
-`cout` - console output -- insertion operator <<  
-`cin` - console input -- extraction operator >>
 
 `#` - is a preprocessor directive
 
@@ -146,7 +265,7 @@ Dynamic Polymorphism - Run-Time Polymorphism
 - usleep (common in POSIX systems) pauses thread: std::this_thread::sleep_for
 - https://github.com/portfoliocourses/c-example-code/tree/main/mutex
 
-`new` - allocate memory dynamically on the heap during runtime:
+`new` - allocates memory dynamically on the heap during runtime:
 
 - `int *ptr = new int;` - variable - `delete ptr;`
 - `int *arr = new int[10];` - array - `delete[] arr;`
@@ -166,7 +285,6 @@ Volatile
 Actual parameters: pass by value: default manner in which passing parameters to functions  
 Function templates  
 Stack frame/activation record  
-Nullptr started in C++11  
 Sentinel  
 include guard - only process once // or pragma once
 constructor initialization list and delegation
