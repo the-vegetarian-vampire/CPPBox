@@ -188,20 +188,63 @@ if not within precision range will display sci-notation
 # STL
 - has ~60 algorithms 
 
+- Vector: direct element access and insertion and deletion at back in `constant time`. 
+  - emplace_back
+  - shrink_to_fit
+  - back_inserter // for copy if
+  - 
+
+## Macros
+Defined using the #define directive in the preprocessor.   
+Need to be careful.   
+- #define PI 3.14159
+- #define SQUARE(x) ((x) * (x))
+- #define MAX(a, b) ((a) > (b) ? (a) : (b))
+```
+#ifdef DEBUG
+#define DEBUG_PRINT(...) fprintf(stderr, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(...) // No action
+#endif
+```
+
+## Templates
+A template is a blueprint; creating functions and classes that work with any data type, promoting code reuse and type safety.
+`template <typename T>`
+  - T is a placeholder for a type
+  - Template instantiations are determined at compile-time. 
+  - may need operator overloading
+Template classee.
+
+## Containers
+[STL Containers](https://en.cppreference.com/w/cpp/container)
+- container - an object that stores other objects (the elements) and that provides various methods to access and manipulate them
+  1. Sequence Containers
+  2. Associative Containers
+  3. Unordered Associative Containers
+
+`generic programming` - (type-agnostic) software components are designed to work with different data types without requiring changes to achieve type-specific behavior; allows a function or a class to work with any data type.   
+`metaprogramming` - code that generates or manipulates other code. It's about programs that reason about, or modify, other programs or themselves, often at compile-time.   
 
 ---
 # Lambda expressions
 - "Closures" or anonymous functions
 - defined inline
+- [] - the capture block
 - `[] (int arg){ return 2 * arg};`
 - can "capture" a local variable
 
 different in C++11/14/17
 
+`stateful`
+`stateless`
+
 
 
 ---
 # Multithreading and Concurrency
+
+### Concurrency
 - two activities at the same time
 - hardware concurrency // CPU chips "cores" // hardware threads
 - simultaneous users // separation of concerns
@@ -209,9 +252,44 @@ different in C++11/14/17
 - multithread: server throughput child and server in same process // access to each others data
 - adds complexity - bug likeliness - and may not result in faster programs
 
+Challenges:
+- race conditions, deadlocks, and resource contention
 
+- `parallelism` - multiple programs at the `same time` (amount of cores (and clock speed operations)) 
+- `threading` - hang, different timing
 - `process` an independent program in execution, with its own memory space, while a thread is the smallest executable unit of a process, sharing the process's memory space. Multithreading allows concurrent execution of two or more threads, which can be achieved through time slicing (sharing the CPU time between all running threads) or true parallel execution (in multi-core processors).
-- 
+
+### Threaded Program Structure
+- `#include thread`
+- entry point function: `main` executes one thread
+- `std::thread` - similar to Boost threads
+- C14 - Read/Write blocks
+- C17 - standard algorithms execute in parallel
+- C20 - joining threads // thread cancellation // Coroutines, semaphores, latches and barriers
+
+Lambda expressions for threads is convenient   
+
+- Constructor starts execution   
+- Parent thread will continue its own execution   
+- By default the destructor calls `std::terminate`   but join() function is a blocking call
+- Joining the thread
+
+----------
+# C++11   
+- best random generator - std::19937
+- should be declared static 
+- Array class `std::array` - more efficient than a vector if the size is fixed and known
+
+
+----------
+# C++14 
+  - using namespace std::literals;
+  - 2s
+  - 20ms
+  - 50us
+
+`auto` - gives underlying type // compiler deduces // typical in `range for loop`
+
 ---
 # Notes
 
@@ -219,7 +297,11 @@ different in C++11/14/17
 - monolithic kernel better performance 
 - `context switching` - process where the state of a process is saved and the state of another process is loaded. It allows a single CPU to be shared by multiple processes by saving and loading their respective states so that execution can be resumed from where it was halted.
 - TTT - Time To Trade
-- ACID
+- `ACID` set of rules to make sure databases work reliably
+  - Atomicity: All parts of a transaction succeed or none of them do. Think of it like buying a soda: if the machine doesn't drop the soda, you don't lose your money.
+  - Consistency: Transactions always take the database from one correct state to another. Imagine a puzzle; after you place a piece, the picture still makes sense.
+  - Isolation: Multiple transactions happening at the same time won't mess up each other. Like multiple people drawing on different parts of a whiteboard without interfering with one another.
+  - Durability: Once a transaction is done, it's permanent, even if there's a power cut. It's like writing something in a book; once it's written, it stays there.
 - nan = not a number
 - Std::move casts the argument to an r value 
 
@@ -228,22 +310,7 @@ different in C++11/14/17
   - sc::miliseconds
   - microseconds
 
-----------
-
-- C++14 // using namespace std::literals;
-  - 2s
-  - 20ms
-  - 50us
-
-`auto` - gives underlying type // compiler deduces // typical in `range for loop`
-
-C++11   
-- best random generator - std::19937
-- should be declared static 
-- 
----
-
-
+----
 # Definitions
 
 
@@ -276,7 +343,6 @@ static_cast<type>()
 `boolalpha` - boolean 0 = false  
 Short-circuit evaluation  
 sequence selection iteration  
-Function overloading  
 Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;  
 size_t  
 Static local variable values retain value between calls  
