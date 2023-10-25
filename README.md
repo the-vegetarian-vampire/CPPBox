@@ -89,6 +89,9 @@ User-defined Types
 
 `endl` - flushes the buffer which takes more time than `\n`
 
+Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;  
+
+
 ---
 # Program Flow
 
@@ -98,10 +101,28 @@ User-defined Types
 
 
 ---
-
 # OOP
+Rule of Three - if a class needs a custom implementation for any one of the following: destructor, copy constructor, or copy assignment operator, then it likely needs custom implementations for all three.
+   - C++11, `Rule of Five` - two more functions were introduced: the move constructor and the move assignment operator. If any of these five operations is custom-defined, the others should be considered too.
+
+
+
+
 ---
-# Operator Overloading
+# Overloading
+Function Overloading; defining multiple functions with the same name but with a different number or type of parameters.
+```
+void foo(int a) { }
+void foo(double b) { }
+```
+
+### Operator Overloading
+
+
+### Virtual Functions
+Overriding
+
+
 ---
 # Inheritance
 ---
@@ -410,6 +431,38 @@ std::shared_mutex
 
 std::ref
 
+### Thread Pools
+To minimize overhead of thread creation and destruction, especially when tasks are short-lived but frequent. Creating and destroying threads for each task can be resource-intensive and slow. By reusing threads that are already alive, a thread pool can significantly improve performance.
+- Fixed size of container thread objects
+- std::thread::hardware_concurrency()
+- Queue of task function objects
+- easy scaling
+
+```cpp
+#include <iostream>
+#include <thread>
+
+void function1(char symbol) {
+  for(int i =0; i < 50; ++i)
+    std::cout << symbol;
+}
+
+void function2(){
+  for (int i = 0; i < 50; ++i)
+    std::cout << "-";
+}
+
+int main()
+{
+  std::thread worker1(function1, 'o');
+  std::thread worker2(function2);
+
+  worker1.join();
+  worker2.join();
+
+    return 0;
+}
+```
 ----------
 # C++11   
 - best random generator - std::19937
@@ -417,7 +470,7 @@ std::ref
 - array class `std::array` - more efficient than a vector if the size is fixed and known
 - move constructor (move semantics)(L value and R value) - && more efficient than copying (steals or pilfers the data)   
 - data race - two or more threads access same memory location
-
+- `constexpr` indicates that the value of a variable, or the result of a function, is a compile-time constant. Functions and variables declared with constexpr are evaluated at compile time whenever possible.
 
 ----------
 # C++14 
@@ -441,6 +494,8 @@ std::ref
   - Durability: Once a transaction is done, it's permanent, even if there's a power cut. It's like writing something in a book; once it's written, it stays there.
 
 
+Perfect forwarding refers to the ability to forward arguments of a function to another function, preserving the "lvalue/rvalue-ness" and the type of each argument.
+
 - nan = not a number
 - Std::move casts the argument to an r value 
 
@@ -451,8 +506,6 @@ std::ref
 
 ----
 # Definitions
-
-
 `pod` - plain old data.
 
 `new` - allocates memory dynamically on the heap during runtime:
@@ -504,7 +557,6 @@ static_cast<type>()
 `boolalpha` - boolean 0 = false  
 Short-circuit evaluation  
 sequence selection iteration  
-Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;  
 size_t  
 Static local variable values retain value between calls  
 Formal parameters    
