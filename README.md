@@ -89,8 +89,10 @@ User-defined Types
 
 `endl` - flushes the buffer which takes more time than `\n`
 
-Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;  
+`Conditional operator` - cout << num << “is ” << (num %2 == 0 ? “even” : “odd” ) << end;     
+`Short-circuit evaluation` - the behavior of logical operators like && and || where the second operand is not evaluated if the first operand determines the result.
 
+Sequence, selection, iteration: Basic control structures: (like if, switch). Iteration: Loops (for, while, do-while).
 
 ---
 # Program Flow
@@ -105,8 +107,17 @@ Conditional operator cout << num << “is ” << (num %2 == 0 ? “even” : “
 Rule of Three - if a class needs a custom implementation for any one of the following: destructor, copy constructor, or copy assignment operator, then it likely needs custom implementations for all three.
    - C++11, `Rule of Five` - two more functions were introduced: the move constructor and the move assignment operator. If any of these five operations is custom-defined, the others should be considered too.
 
+Shallow copy: Copying the object's members directly, often leading to problems with shared pointers and dynamic memory.
 
+Deep copy: Creating a copy of the object and the objects it refers to. It's more involved but avoids issues associated with shared resources.
 
+```cpp
+class Example {
+    int x;
+public:
+    Example(int value) : x(value) {}  // initialization list
+};
+```
 
 ---
 # Overloading
@@ -294,6 +305,12 @@ A template is a blueprint; creating functions and classes that work with any dat
   - Template instantiations are determined at compile-time. 
   - may need operator overloading
 Template classee.
+```cpp
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
+```
 
 ## Containers
 [STL Containers](https://en.cppreference.com/w/cpp/container)
@@ -353,9 +370,8 @@ L(num2);
 
 ---
 # Multithreading and Concurrency
-1. [Learn Multithreading with Modern C++](https://www.udemy.com/course/learn-modern-cplusplus-concurrency) with James Raynard
-2. [Concurrency In Action](https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf)
-3. [Multi-threading Course Files](https://github.com/JamesRaynard/Multithreading-Cpp-Course)  
+1. [Concurrency In Action](https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf)
+2. [Multi-threading Course Files](https://github.com/JamesRaynard/Multithreading-Cpp-Course)  
 
 ### Concurrency
 - two activities at the same time
@@ -424,6 +440,11 @@ std::unique_lock
 std::timed_mutex
 std::shared_mutex
 ```
+
+- std::chronos // namespace sc = std::chrono // C++11
+  - sc::seconds
+  - sc::miliseconds
+  - microseconds
 
 - crucial for ensuring the correctness and efficiency of multithreaded applications
 - usleep (common in POSIX systems) pauses thread: std::this_thread::sleep_for
@@ -494,15 +515,10 @@ int main()
   - Durability: Once a transaction is done, it's permanent, even if there's a power cut. It's like writing something in a book; once it's written, it stays there.
 
 
-Perfect forwarding refers to the ability to forward arguments of a function to another function, preserving the "lvalue/rvalue-ness" and the type of each argument.
+`Perfect forwarding` - refers to the ability to forward arguments of a function to another function, preserving the "lvalue/rvalue-ness" and the type of each argument.
 
 - nan = not a number
 - Std::move casts the argument to an r value 
-
-- std::chrono // namespace sc = std::chrono
-  - sc::seconds
-  - sc::miliseconds
-  - microseconds
 
 ----
 # Definitions
@@ -513,6 +529,9 @@ Perfect forwarding refers to the ability to forward arguments of a function to a
 - `int *ptr = new int;` - variable - `delete ptr;`
 - `int *arr = new int[10];` - array - `delete[] arr;`
 
+`Sentinel` - value indicating the end of a data structure, like a null-terminated string in C.
+
+------
 # Cache 
   - `cache` - french for hidden; static RAM, modern days on same CPU chip
   - cache controller
@@ -554,21 +573,18 @@ Perfect forwarding refers to the ability to forward arguments of a function to a
 ---
 
 static_cast<type>()  
-`boolalpha` - boolean 0 = false  
-Short-circuit evaluation  
-sequence selection iteration  
 size_t  
-Static local variable values retain value between calls  
-Formal parameters    
-Actual parameters: pass by value: default manner in which passing parameters to functions  
-Function templates  
-Stack frame/activation record  
-Sentinel  
+Static local variable values - retain value between calls  
+Formal parameters // Actual parameters
+
+pass by value: default manner in which passing parameters to functions  
+Stack frame/activation record    
 include guard - only process once // or pragma once
-constructor initialization list and delegation
+
 shallow copy -  and invalid data   
-deep copy - copy data to pointer (incurs overhead)    
-return value optimization   
+deep copy - copy data to pointer (incurs overhead) 
+
+Return value optimization (RVO): A compiler optimization that avoids extra copy or move operations when returning a value from a function.
 
 ---
 
@@ -579,11 +595,12 @@ valgrind
 
 Copy Constructor: A copy constructor initializes an object using another object of the same type. It's particularly useful when you need a deep copy or want to control how objects of a class are copied.
 
-Stack vs. Heap
+-----
+# Stack vs. Heap
   1. Stack - for automatic storage duration, typically for local variables; LIFO (last in, first out) nature, is of limited size, and has automatic memory management. 
   2. Heap - for dynamic storage duration, managed using `new` and `delete` (or malloc and free in C); larger but requires manual memory management.
 
-
+---
 std::move vs std::copy: std::move is used for moving resources (like from one object to another), while std::copy is for copying contents between two places.
 
 Sockets:
@@ -606,17 +623,15 @@ A delimiter is a character or sequence of characters used to separate distinct r
 
 `uint_fast32` - defined in the <cstdint> - the fastest unsigned integer type with a width of at least 32 bits.
 
+----
 # Structure Layout
 ```cpp
-// 1. Preprocessor Directives
-// This directive includes the header file iostream, which provides facilities
-// for standard input/output operations (e.g., cout, cin).
+// 1. Preprocessor Directive; iincludes header files
 #include <iostream>
 
 // 2. Global Variables and Constants
-// While using global variables is generally discouraged due to potential 
-// issues with side effects and maintainability, here's an example.
-// This variable is accessible from any function in this file.
+// Generally discouraged due to potential issues, side effects and maintainability
+// Variable is accessible from any function in this file.
 int globalVar = 10;
 
 // 3. Function Prototypes
@@ -626,7 +641,7 @@ void printMessage();
 // 4. (No Classes/Structs/Unions/Enumerations in this example, but they would go here.)
 
 // 5. Function Definitions and the main Function
-// The main function is the entry point of a C++ program.
+// Main function is the entry point of a C++ program.
 int main() {
     // Using the Standard Library's cout function to print to the console.
     std::cout << "Hello, World!" << std::endl;
