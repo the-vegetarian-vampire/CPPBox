@@ -4,6 +4,9 @@ Playing with C++
 [CPP Reference](https://en.cppreference.com/w/)
   - [Keywords](https://en.cppreference.com/w/cpp/keyword)  
   - [Awesome-cpp](https://github.com/fffaraz/awesome-cpp)
+  - [Portfolio Courses](https://www.youtube.com/@PortfolioCourses)
+  - [Code Beauty](https://www.youtube.com/@CodeBeauty)
+  - [The Cherno](https://www.youtube.com/@TheCherno)
 
 1. Books
 2. Videos
@@ -19,6 +22,8 @@ Playing with C++
 3. Add to tasks.json
 
 - "-Wall" and "-std=C++17"
+- `-g` - tells compiler to include debugging information in generated executable.  
+- `-o` - specifies name of output file; if no -o option, g++ will produce an output file named a.out on Unix systems
 
 to compile:
 
@@ -31,12 +36,6 @@ or
 ```cpp
 g++ file.cpp -o file
 ```
-
----
-
-`-g` - tells compiler to include debugging information in generated executable.  
-`-o` - specifies name of output file. If no -o option, g++ will, by default, produce an output file named a.out on Unix-like systems or a.exe on Windows.
-
 ---
 
 ```cpp
@@ -47,7 +46,6 @@ to run: ./filename
 - VC++
 - gcc
 
-
 # Statements and Operators
 ~90 keywords
 
@@ -56,7 +54,6 @@ Universal initiliazation
 - `int x{7.7}` - is ok; narrowing conversion
 
 `#` - is a preprocessor directive
-
 `g++` - gnu compiler  
 
 - `short` - typically 2-byte integer.
@@ -104,12 +101,17 @@ Sequence, selection, iteration: Basic control structures: (like if, switch). Ite
 
 ---
 # OOP
-Rule of Three - if a class needs a custom implementation for any one of the following: destructor, copy constructor, or copy assignment operator, then it likely needs custom implementations for all three.
-   - C++11, `Rule of Five` - two more functions were introduced: the move constructor and the move assignment operator. If any of these five operations is custom-defined, the others should be considered too.
+Rule of Three - if a class needs a custom implementation for any one of the following: 
+  1. destructor
+  2. copy constructor
+  3. copy assignment operator, then it likely needs custom implementations for all three.
+   - C++11, `Rule of Five` - two more functions were introduced: 
+  - 4. move constructor
+  - 5. move assignment operator. 
+  - If any of these five operations is custom-defined, the others should be considered too.
 
-Shallow copy: Copying the object's members directly, often leading to problems with shared pointers and dynamic memory.
-
-Deep copy: Creating a copy of the object and the objects it refers to. It's more involved but avoids issues associated with shared resources.
+- shallow copy: Copying the object's members directly, often leading to problems with shared pointers and dynamic memory.
+- deep copy: Creating a copy of the object and the objects it refers to. It's more involved but avoids issues associated with shared resources.
 
 ```cpp
 class Example {
@@ -132,7 +134,6 @@ void foo(double b) { }
 
 ### Virtual Functions
 Overriding
-
 
 ---
 # Inheritance
@@ -418,14 +419,32 @@ In finance, often have a `dedicated processor core` and a `thread for each stock
 
 ### Thread Class
 Thread class is move only; objects cannot be copied; move transfers ownership. Returning a thread object, the compiler will automatically move it. 
+```
 `native_handle()` - 
 `std::this_thread::get_id()` -   
 `thr.get_id()` -   
 `std::this_thread::sleep_for()` - 
 `detach()`
+<atomic>
+Std::atomic<bool>
+Std::atomic_flag
+Store 
+Load 
+exchange()
+Fetch_add()
+<future>
+std::package_task
+Std::promise
+Std::async
+Spin lock
+TLS Thread Local Storage
+Wait_for()
+Wait_until()
+```
 
 ### Mutex Class
 `mutex` - (mutual exclusion object) a synchronization primitive that enforces limits on access to a shared resource within multiple threads of execution (a kind of policeman or doorman; protecting shared data)
+  - Code Beauty [video explanation](https://www.youtube.com/watch?si=LLZ45YZFTbiuuJYR&v=-Qa1RqmXKG0&feature=youtu.be)
   - `include <mutex>`
   - two states: locked or unlocked
   - hold lock for the shortest time
