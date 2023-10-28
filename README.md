@@ -122,6 +122,9 @@ public:
 };
 ```
 
+`this->` - explicitly refer to a member of the current object from within one of its methods
+  - (*ptr).member
+  - ptr->member
 ---
 # Overloading
 Function Overloading; defining multiple functions with the same name but with a different number or type of parameters.
@@ -450,17 +453,21 @@ Wait_until()
   - `include <mutex>`
   - two states: locked or unlocked
   - hold lock for the shortest time
+  - Use mutex as infrequently as possible. 
+  - 6 types
+  - `std::mutex`
+  - `std::recursive_mutex`
+  - `std::timed_mutex`
+  - `std::recursive_timed_mutex`
+  - `std::shared_mutex`
+  - `std::shared_timed_mutex`
+
+custom cancellation with a stop_token 
   - lock()
   - try_lock()
   - unlock()
-- 
-
-```
-std::lock_guard   
-std::unique_lock   
-std::timed_mutex
-std::shared_mutex
-```
+- std::lock_guard   
+- std::unique_lock   
 
 - std::chronos // namespace sc = std::chrono // C++11
   - sc::seconds
