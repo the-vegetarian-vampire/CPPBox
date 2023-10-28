@@ -131,7 +131,7 @@ void foo(double b) { }
 ```
 
 ### Operator Overloading
-
+[CodeBeauty video](https://www.youtube.com/watch?si=Pj2FnZlNXhbMSjlx&v=BnMnozsSPmw&feature=youtu.be)
 
 ### Virtual Functions
 Overriding
@@ -374,6 +374,7 @@ L(num2);
 # Multithreading and Concurrency
 1. [Concurrency In Action](https://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf)
 2. [Multi-threading Course Files](https://github.com/JamesRaynard/Multithreading-Cpp-Course)  
+3. [CPP-Con video](https://www.youtube.com/watch?v=A7sVFJLJM-A&t=366s)
 
 ### Concurrency
 - two activities at the same time
