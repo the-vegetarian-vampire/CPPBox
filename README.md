@@ -7,6 +7,7 @@ Playing with C++
   - [Portfolio Courses](https://www.youtube.com/@PortfolioCourses)
   - [Code Beauty](https://www.youtube.com/@CodeBeauty)
   - [The Cherno](https://www.youtube.com/@TheCherno)
+  - [CPP Con](https://www.youtube.com/@CppCon/featured)
 
 1. Books
 2. Videos
@@ -377,7 +378,7 @@ L(num2);
 ### Concurrency
 - two activities at the same time
 - hardware concurrency // CPU chips "cores" // hardware threads
-- simultaneous users // separation of concerns
+- simultaneous users // `separation of concerns`
 - processor bigger and clock frequency but electrons can move through silicon so fast 
 - multithread: server throughput child and server in same process // access to each others data
 - adds complexity - bug likeliness - and may not result in faster programs
@@ -413,7 +414,7 @@ Lambda expressions for threads is convenient
   - premptive `task switching` -  OS can forcibly interrupt a currently running process to give another process a turn to use the CPU
   - `context switching` - process where the state of a process is saved and the state of another process is loaded. It allows a single CPU to be shared by multiple processes by saving and loading their respective states so that execution can be resumed from where it was halted.
   - data race - two or more threads access same memory location; one thread is modifying it
-  - critical section: must only be executed one thread at a time
+  - `critical` section: must only be executed one thread at a time
 
 In finance, often have a `dedicated processor core` and a `thread for each stock ticker` so it guarantees the code which manages each ticker is always running, always available, and never has to be context switched.   
 
@@ -503,6 +504,21 @@ int main()
     return 0;
 }
 ```
+
+# Parallelism
+- Task Parallelism
+- Fork and join
+- Data Parallelism
+- Pipelining
+- Graph Parallelism
+
+Algorithms
+- std::find
+- std::find_if()
+- std::accumulate
+- std::reduce()
+- std::inclusive_scan
+
 ----------
 # C++11   
 - best random generator - std::19937
