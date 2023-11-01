@@ -565,6 +565,14 @@ Algorithms
 
 ----
 # Definitions
+
+`delimiter` - a character or sequence of characters used to separate distinct regions or elements in data. It marks boundaries between different items.
+  - In CSV files: , separates values.
+  - In programming: ; separates statements.
+  - In string parsing: a space might separate words.
+  - In JSON: { and } delimit objects; [ and ] delimit arrays.
+
+
 `pod` - plain old data.
 
 `new` - allocates memory dynamically on the heap during runtime:
@@ -573,6 +581,10 @@ Algorithms
 - `int *arr = new int[10];` - array - `delete[] arr;`
 
 `Sentinel` - value indicating the end of a data structure, like a null-terminated string in C.
+
+`Coroutines` - flow control is cooperatively passed between two different routines without returning; keyword "pause." Unlike standard functions that start and run to completion, coroutines can be stopped at any point and resumed later; coroutine yields control explicitly, meaning it decides when to pause and give control back. Another coroutine won't start until the current one decides to yield.
+
+`Return value optimization (RVO)` - compiler optimization that avoids extra copy or move operations when returning a value from a function.
 
 ------
 # Cache 
@@ -627,8 +639,6 @@ include guard - only process once // or pragma once
 shallow copy -  and invalid data   
 deep copy - copy data to pointer (incurs overhead) 
 
-Return value optimization (RVO): A compiler optimization that avoids extra copy or move operations when returning a value from a function.
-
 ---
 
 * Avoiding Heap Allocations: Use stack memory or pre-allocated memory pools to avoid dynamic memory allocations during critical paths.
@@ -658,11 +668,6 @@ RDMA (Remote Direct Memory Access):
 * RDMA allows direct memory access from the memory of one computer to that of another without involving either one's operating system. This is beneficial for HFT as it reduces latency in network communications.
 * It's a technology that permits high-throughput, low-latency networking, which is used in supercomputing and financial applications.
 
-A delimiter is a character or sequence of characters used to separate distinct regions or elements in data. It marks boundaries between different items.
-  - In CSV files: , separates values.
-  - In programming: ; separates statements.
-  - In string parsing: a space might separate words.
-  - In JSON: { and } delimit objects; [ and ] delimit arrays.
 
 `uint_fast32` - defined in the <cstdint> - the fastest unsigned integer type with a width of at least 32 bits.
 
