@@ -709,3 +709,179 @@ void printMessage() {
 
 // 6. (No Namespace Declarations in this example, but custom namespaces would be defined here.)
 ```
+
+-----
+# Questions and Quiz
+## C++ Basics:
+
+<details>
+<summary>Difference between references and pointers?</summary>
+
+- References are immutable bindings to another variable, cannot be `nullptr`, and don't need dereferencing.
+- Pointers can be reassigned, can point to `nullptr`, and must be dereferenced to access the target variable.
+</details>
+
+<details>
+<summary>Difference between memory allocation on stack and on heap?</summary>
+
+- **Stack:** Automatic, fast, and limited in size. Memory is allocated and deallocated with the block scope.
+- **Heap:** Dynamic, manual using `new`/`delete`, more flexible, but slower and riskier (memory leaks).
+</details>
+
+<details>
+<summary>What kinds of smart pointers exist?</summary>
+
+- `std::unique_ptr`
+- `std::shared_ptr`
+- `std::weak_ptr`
+</details>
+
+<details>
+<summary>How is `unique_ptr` implemented? How do we ensure that only one owner of the object exists in `unique_ptr`?</summary>
+
+- Implemented as a template class with deleted copy constructor/assignment. Ensures unique ownership by only allowing move semantics.
+</details>
+
+<details>
+<summary>How does `shared_ptr` work? How is the reference counter synchronized between objects?</summary>
+
+- Manages ownership through a shared reference count, using atomic operations for synchronization.
+</details>
+
+<details>
+<summary>Can we copy `unique_ptr` or pass it from one object to another?</summary>
+
+- Cannot be copied, but can be moved with `std::move`.
+</details>
+
+<details>
+<summary>What are rvalue and lvalue?</summary>
+
+- **lvalue:** Refers to memory location with a persistent object.
+- **rvalue:** Temporary value not persisting beyond its immediate use.
+</details>
+
+<details>
+<summary>What are `std::move` and `std::forward`?</summary>
+
+- `std::move`: Converts to rvalue to enable move semantics.
+- `std::forward`: Used in perfect forwarding to preserve value category of forwarded arguments.
+</details>
+
+## OOP:
+
+<details>
+<summary>Ways to access private fields of some class?</summary>
+
+- Using getters/setters, friend classes, or functions.
+</details>
+
+<details>
+<summary>Can a class inherit multiple classes?</summary>
+
+- Yes, C++ supports multiple inheritance.
+</details>
+
+<details>
+<summary>Is a static field initialized in class constructor?</summary>
+
+- No, static fields are initialized outside the constructor.
+</details>
+
+<details>
+<summary>Can an exception be thrown in constructor/destructor? How to prevent that?</summary>
+
+- Yes, exceptions can be thrown. To prevent them, handle exceptions within the constructor/destructor or avoid throwing from these methods.
+</details>
+
+<details>
+<summary>What are virtual methods?</summary>
+
+- Methods that can be overridden in derived classes, enabling polymorphism.
+</details>
+
+<details>
+<summary>Why do we need a virtual destructor?</summary>
+
+- To ensure proper cleanup of derived class resources when deleting through a base class pointer.
+</details>
+
+<details>
+<summary>Difference between abstract class and interface?</summary>
+
+- **Abstract class:** Can have implementations and state.
+- **Interface:** Typically has no implementations or state (pure abstract class).
+</details>
+
+<details>
+<summary>Can a constructor be virtual?</summary>
+
+- No, constructors cannot be virtual.
+</details>
+
+<details>
+<summary>How is the keyword `const` used for class methods?</summary>
+
+- To indicate the method doesn't alter the state of the object.
+</details>
+
+<details>
+<summary>How to protect an object from copying?</summary>
+
+- Delete the copy constructor and copy assignment operator.
+</details>
+
+## STL Containers:
+
+<details>
+<summary>Difference between `vector` and `list`?</summary>
+
+- **Vector:** Dynamic array with random access.
+- **List:** Doubly-linked list with sequential access.
+</details>
+
+<details>
+<summary>Difference between `map` and `unordered_map`?</summary>
+
+- **Map:** Ordered by key, uses Red-Black Tree.
+- **Unordered_map:** Unordered, uses hash table.
+</details>
+
+<details>
+<summary>Does calling `push_back()` make iterator in vector invalid?</summary>
+
+- It can if reallocation occurs.
+</details>
+
+<details>
+<summary>How to modify your class to use with `map` and `unordered_map`?</summary>
+
+- Provide a strict weak ordering for `map` (e.g., via a comparator) and a hash function for `unordered_map`.
+</details>
+
+## Threads:
+
+<details>
+<summary>Difference between processes and threads?</summary>
+
+- Processes: Independent execution units with own resources.
+- Threads: Lightweight, share process resources.
+</details>
+
+<details>
+<summary>Can the same thread be run twice?</summary>
+
+- No, once a thread completes execution, it cannot be restarted.
+</details>
+
+<details>
+<summary>Ways to synchronize threads?</summary>
+
+- Mutexes, locks, semaphores, condition variables.
+</details>
+
+<details>
+<summary>What is deadlock?</summary>
+
+- A situation where two or more threads are unable to proceed because each is waiting for the other to release resources.
+</details>
