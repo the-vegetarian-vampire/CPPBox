@@ -13,6 +13,13 @@ Playing with C++
 2. Videos
 3. Leetcode
 4. Projects
+   
+TODOS:
+- Perf tool: Run `perf --version` in your terminal: `perf record ./your_program`
+- lambda functions 
+- operator overloading 
+- Smart pointers
+- C++20 `contains`
 
 -----
 
@@ -102,7 +109,7 @@ Sequence, selection, iteration: Basic control structures: (like if, switch). Ite
 
 ---
 # OOP
-Rule of Three - if a class needs a custom implementation for any one of the following: 
+`Rule of Three` - if a class needs a custom implementation for any one of the following: 
   1. destructor
   2. copy constructor
   3. copy assignment operator, then it likely needs custom implementations for all three.
@@ -545,6 +552,10 @@ Algorithms
 
 `auto` - gives underlying type // compiler deduces // typical in `range for loop` and lambdas
 
+----------
+# C++20
+SFINAE (Substitution Failure Is Not An Error): C++20 introduced concepts, which are a way to specify constraints on template parameters, making template code clearer and safer. Before C++20, SFINAE was used for this purpose. It's a technique where the compiler ignores certain template instantiations if they result in a type error, allowing for type-safe template code.
+
 ---
 # Notes
 
@@ -654,6 +665,10 @@ Copy Constructor: A copy constructor initializes an object using another object 
   2. Heap - for dynamic storage duration, managed using `new` and `delete` (or malloc and free in C); larger but requires manual memory management.
 
 ---
+
+    std::unordered_set<int> hashSet;
+CRTP (Curiously Recurring Template Pattern): CRTP is a C++ idiom where a class derives from a template class with a parameter of its own type. It's often used for static polymorphism, allowing method calls to be resolved at compile time rather than runtime, enhancing performance.
+
 std::move vs std::copy: std::move is used for moving resources (like from one object to another), while std::copy is for copying contents between two places.
 
 Sockets:
@@ -661,7 +676,7 @@ Sockets:
 
 TCP/UDP:
     * These are transport layer protocols in the internet protocol suite.
-    * TCP (Transmission Control Protocol): It is a connection-oriented protocol, ensuring that data sent from one end reaches the other end in the correct order and without errors. It's reliable but might have overhead due to its error-checking mechanisms.
+    * TCP (Transmission Control Protocol): It is a connection-oriented protocol, ensuring data sent from one end reaches the other end in correct order and without errors. It's reliable but might have overhead due to its error-checking mechanisms.
     * UDP (User Datagram Protocol): It is a simpler, connectionless protocol. Messages (datagrams) are sent without establishing a connection and without error-checking, making it faster but less reliable than TCP.
 
 RDMA (Remote Direct Memory Access):
