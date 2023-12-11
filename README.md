@@ -554,6 +554,9 @@ Algorithms
 
 ----------
 # C++20
+
+`std::set::contains(const KeyType&)`    
+
 SFINAE (Substitution Failure Is Not An Error): C++20 introduced concepts, which are a way to specify constraints on template parameters, making template code clearer and safer. Before C++20, SFINAE was used for this purpose. It's a technique where the compiler ignores certain template instantiations if they result in a type error, allowing for type-safe template code.
 
 ---
@@ -582,6 +585,8 @@ SFINAE (Substitution Failure Is Not An Error): C++20 introduced concepts, which 
   - In programming: ; separates statements.
   - In string parsing: a space might separate words.
   - In JSON: { and } delimit objects; [ and ] delimit arrays.
+
+`LLVM` - originally an acronym for "Low Level Virtual Machine", is a collection of modular and reusable compiler and toolchain technologies used in the development of compiler front ends and back ends.
 
 
 `pod` - plain old data.
