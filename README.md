@@ -166,6 +166,11 @@ Overriding
 
 ---
 # Inheritance
+
+Diamond problem:
+  - This problem occurs when two classes B and C inherit from a class A, and a class D inherits from both B and C. If there is a method in A that B and C have overridden, and D does not override it, there is ambiguity about which method D should inherit - from B or from C.   
+
+  
 ---
 # Polymorphism
  Polymorphism - enables objects of different types through a uniform interface, enhancing flexibility and scalability of the code.
