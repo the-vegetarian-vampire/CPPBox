@@ -7,7 +7,7 @@ Playing with C++
 
 ----------
 
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)      
 [How to write gorgeous C++ code](https://www.youtube.com/watch?v=6lU11IHfJgo)
 
 ----------
