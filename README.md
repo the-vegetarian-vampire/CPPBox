@@ -2,8 +2,17 @@
 
 Playing with C++    
 [CPP Reference](https://en.cppreference.com/w/)
-  - [Keywords](https://en.cppreference.com/w/cpp/keyword)  
+  - [Keywords](https://en.cppreference.com/w/cpp/keyword)
   - [Awesome-cpp](https://github.com/fffaraz/awesome-cpp)
+
+----------
+
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+[How to write gorgeous C++ code](https://www.youtube.com/watch?v=6lU11IHfJgo)
+
+----------
+
+Youtube Resources
   - [Portfolio Courses](https://www.youtube.com/@PortfolioCourses)
   - [Code Beauty](https://www.youtube.com/@CodeBeauty)
   - [The Cherno](https://www.youtube.com/@TheCherno)
@@ -53,6 +62,16 @@ to run: ./filename
 - clang
 - VC++
 - gcc
+
+Memory Leaks: Valgrind is not supported on Apple Silicon
+  - MacOS built in leaks: `$leaks <your program>` and see `$ man leaks`
+
+-------
+# Tools
+Fuzzing
+-  [Monad FuzzTest](https://github.com/monad-crypto/fuzztest/blob/main/doc/fuzz-test-macro.md)
+-  Lib Fuzzer
+-  AFL American FuzzyLop
 
 # Statements and Operators
 ~90 keywords
@@ -105,7 +124,6 @@ Sequence, selection, iteration: Basic control structures: (like if, switch). Ite
 ---
 # Pointers and References
 - nullptr C++11  
-
 
 ---
 # OOP
@@ -163,6 +181,7 @@ Dynamic Polymorphism - Run-Time Polymorphism
 
 ---
 # Smart Pointers
+[Are "smart pointers" actually smart? video](https://www.youtube.com/watch?v=tSIBKys2eBQ)
 - C++11 `use_count` and `make_shared`
 - object class templates
 - point to heap and automatically call delete
