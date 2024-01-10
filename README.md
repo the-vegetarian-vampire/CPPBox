@@ -577,6 +577,14 @@ Algorithms
 
 `auto` - gives underlying type // compiler deduces // typical in `range for loop` and lambdas
 
+---------------
+# C++17
+
+Structured Binding Declaration: `The [_, c]` is a structured binding declaration. It allows to unpack a tuple or a pair (or any object that can be decomposed into elements) into individual variables.
+- std::pair<int, std::string> myPair = {1, "example"};
+- auto [num, str] = myPair;  // Unpacks myPair into num (int) and str (std::string)
+
+
 ----------
 # C++20
 
