@@ -125,6 +125,9 @@ Sequence, selection, iteration: Basic control structures: (like if, switch). Ite
 ---
 # Pointers and References
 - nullptr C++11  
+- `VOID POINTERS` - can point to an object of any data type;  
+it cannot be directly dereferenced without first being cast to another pointer type
+  - useful in situations where a function needs to be able to deal with data of different types. For example, a generic memory allocation function like malloc in C returns a void pointer, which can then be cast to any pointer type by the programmer.
 
 ---
 # OOP
