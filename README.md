@@ -607,6 +607,7 @@ SFINAE (Substitution Failure Is Not An Error): C++20 introduced concepts, which 
   - Isolation: Multiple transactions happening at the same time won't mess up each other. Like multiple people drawing on different parts of a whiteboard without interfering with one another.
   - Durability: Once a transaction is done, it's permanent, even if there's a power cut. It's like writing something in a book; once it's written, it stays there.
 
+- `Endofunctors` and `Monads` - https://stackoverflow.com/questions/3870088/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-whats-the-problem
 
 `Perfect forwarding` - refers to the ability to forward arguments of a function to another function, preserving the "lvalue/rvalue-ness" and the type of each argument.
 
